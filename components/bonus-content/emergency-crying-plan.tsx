@@ -122,19 +122,19 @@ export function EmergencyCryingPlan() {
 
     return (
       <div className="space-y-6">
-        {/* Intro */}
+        {/* Intro Card */}
         <Card className="border-0 shadow-lg bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl">
-          <CardContent className="p-6">
-            <div className="flex items-start gap-4">
-              <div className="bg-red-100 rounded-full p-3">
-                <Baby className="h-6 w-6 text-red-600" />
+          <CardContent className="p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+              <div className="bg-red-100 rounded-full p-2 sm:p-3 mx-auto sm:mx-0">
+                <Baby className="h-5 w-5 sm:h-6 sm:w-6 text-red-600" />
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-red-800 mb-2">Liebe {userData?.parentName},</h3>
-                <p className="text-red-700 leading-relaxed mb-4">
+              <div className="text-center sm:text-left">
+                <h3 className="text-lg sm:text-xl font-bold text-red-800 mb-2">Liebe {userData?.parentName},</h3>
+                <p className="text-red-700 leading-relaxed mb-4 text-sm sm:text-base">
                   bevor du irgendetwas machst… <strong>atme tief durch</strong>.
                 </p>
-                <p className="text-red-700 leading-relaxed">
+                <p className="text-red-700 leading-relaxed text-sm sm:text-base">
                   Jetzt schauen wir gemeinsam: Warum schreit {userData?.babyName} gerade wirklich?
                 </p>
               </div>
@@ -177,26 +177,30 @@ export function EmergencyCryingPlan() {
 
         {/* Symptom Table */}
         <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm rounded-3xl">
-          <CardHeader>
-            <CardTitle className="text-2xl text-red-800 flex items-center gap-3">
-              <Thermometer className="h-6 w-6 text-blue-600" />
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="text-xl sm:text-2xl text-red-800 flex items-center gap-3">
+              <Thermometer className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
               Körperliche Signale richtig deuten:
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-4 sm:p-6">
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full min-w-[300px]">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-bold text-gray-700">Symptom</th>
-                    <th className="text-left py-3 px-4 font-bold text-gray-700">Mögliche Ursache</th>
+                    <th className="text-left py-2 sm:py-3 px-2 sm:px-4 font-bold text-gray-700 text-sm sm:text-base">
+                      Symptom
+                    </th>
+                    <th className="text-left py-2 sm:py-3 px-2 sm:px-4 font-bold text-gray-700 text-sm sm:text-base">
+                      Mögliche Ursache
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="space-y-2">
                   {symptoms.map(([symptom, cause], index) => (
                     <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-3 px-4 text-gray-700">{symptom}</td>
-                      <td className="py-3 px-4 text-gray-600">{cause}</td>
+                      <td className="py-2 sm:py-3 px-2 sm:px-4 text-gray-700 text-sm sm:text-base">{symptom}</td>
+                      <td className="py-2 sm:py-3 px-2 sm:px-4 text-gray-600 text-sm sm:text-base">{cause}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -207,25 +211,25 @@ export function EmergencyCryingPlan() {
 
         {/* Mini-Schnelltest */}
         <Card className="border-0 shadow-xl bg-gradient-to-r from-yellow-50 to-orange-50 rounded-3xl">
-          <CardHeader>
-            <CardTitle className="text-2xl text-orange-800 flex items-center gap-3">
-              <Clock className="h-6 w-6 text-orange-600" />
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="text-xl sm:text-2xl text-orange-800 flex items-center gap-3">
+              <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
               Mini-Schnelltest:
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <p className="text-lg font-bold text-orange-800 mb-4">👉 Was war die letzten 2 Stunden?</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <CardContent className="p-4 sm:p-6">
+            <p className="text-base sm:text-lg font-bold text-orange-800 mb-4">👉 Was war die letzten 2 Stunden?</p>
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {questions.map((question, index) => (
                 <Button
                   key={index}
                   variant="outline"
-                  className="h-16 text-center border-orange-200 hover:bg-orange-100 hover:border-orange-300"
+                  className="h-14 sm:h-16 text-center border-orange-200 hover:bg-orange-100 hover:border-orange-300 p-2"
                   onClick={() => handleCheckItem(`test-${index}`)}
                 >
                   <div className="text-center">
-                    <div className="text-2xl mb-1">{checkedItems[`test-${index}`] ? "✅" : "❓"}</div>
-                    <div className="text-sm font-medium">{question}</div>
+                    <div className="text-xl sm:text-2xl mb-1">{checkedItems[`test-${index}`] ? "✅" : "❓"}</div>
+                    <div className="text-xs sm:text-sm font-medium leading-tight">{question}</div>
                   </div>
                 </Button>
               ))}
@@ -363,16 +367,16 @@ export function EmergencyCryingPlan() {
             {steps.map((step) => (
               <div
                 key={step.step}
-                className="flex items-start gap-4 p-4 bg-gradient-to-r from-gray-50 to-white rounded-2xl border border-gray-200"
+                className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-gradient-to-r from-gray-50 to-white rounded-2xl border border-gray-200"
               >
                 <div
-                  className={`w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold ${step.color}`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-lg sm:text-xl font-bold ${step.color} mx-auto sm:mx-0`}
                 >
                   {step.step}
                 </div>
-                <div>
-                  <h4 className="font-bold text-gray-800 mb-2">{step.title}</h4>
-                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                <div className="text-center sm:text-left">
+                  <h4 className="font-bold text-gray-800 mb-2 text-sm sm:text-base">{step.title}</h4>
+                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -381,25 +385,27 @@ export function EmergencyCryingPlan() {
 
         {/* White Noise Technik */}
         <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm rounded-3xl">
-          <CardHeader>
-            <CardTitle className="text-xl text-green-800 flex items-center gap-3">
-              <Volume2 className="h-6 w-6 text-green-600" />
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="text-lg sm:text-xl text-green-800 flex items-center gap-3">
+              <Volume2 className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
               Die White Noise Technik
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-gray-700">👉 Starte sofort Geräusche wie: Fön, Staubsauger, Meeresrauschen.</p>
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-4 border border-green-200">
-              <div className="flex items-center justify-between">
+          <CardContent className="p-4 sm:p-6 space-y-4">
+            <p className="text-gray-700 text-sm sm:text-base">
+              👉 Starte sofort Geräusche wie: Fön, Staubsauger, Meeresrauschen.
+            </p>
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-3 sm:p-4 border border-green-200">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <Headphones className="h-6 w-6 text-green-600" />
-                  <span className="font-medium text-green-800">SOS White Noise Player</span>
+                  <Headphones className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
+                  <span className="font-medium text-green-800 text-sm sm:text-base">SOS White Noise Player</span>
                 </div>
                 <Button
                   onClick={toggleWhiteNoise}
                   className={`${
                     isPlayingWhiteNoise ? "bg-red-500 hover:bg-red-600" : "bg-green-500 hover:bg-green-600"
-                  } text-white`}
+                  } text-white w-full sm:w-auto`}
                 >
                   {isPlayingWhiteNoise ? (
                     <>
@@ -415,7 +421,7 @@ export function EmergencyCryingPlan() {
                 </Button>
               </div>
               {isPlayingWhiteNoise && (
-                <div className="mt-3 text-sm text-green-700">
+                <div className="mt-3 text-xs sm:text-sm text-green-700 text-center sm:text-left">
                   🎵 White Noise läuft... Beruhigende Geräusche für {userData?.babyName}
                 </div>
               )}
@@ -492,18 +498,20 @@ export function EmergencyCryingPlan() {
 
         {/* Positive Affirmationen */}
         <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm rounded-3xl">
-          <CardHeader>
-            <CardTitle className="text-xl text-pink-800 flex items-center gap-3">✨ Positive Affirmationen:</CardTitle>
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="text-lg sm:text-xl text-pink-800 flex items-center gap-3">
+              ✨ Positive Affirmationen:
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <CardContent className="p-4 sm:p-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {affirmations.map((affirmation, index) => (
                 <div
                   key={index}
-                  className="text-center p-6 bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl border border-pink-200"
+                  className="text-center p-4 sm:p-6 bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl border border-pink-200"
                 >
-                  <Star className="h-8 w-8 text-pink-500 mx-auto mb-3" />
-                  <p className="font-bold text-pink-800 text-lg">{affirmation}</p>
+                  <Star className="h-6 w-6 sm:h-8 sm:w-8 text-pink-500 mx-auto mb-3" />
+                  <p className="font-bold text-pink-800 text-base sm:text-lg">{affirmation}</p>
                 </div>
               ))}
             </div>
@@ -558,26 +566,26 @@ export function EmergencyCryingPlan() {
     <div className="space-y-6">
       {/* Premium Header */}
       <Card className="border-0 shadow-xl bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-3xl">
-        <CardContent className="p-8">
-          <div className="flex items-center gap-6">
-            <div className="bg-white/20 rounded-full p-4 backdrop-blur-sm">
-              <AlertTriangle className="h-10 w-10" />
+        <CardContent className="p-4 sm:p-6 md:p-8">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <div className="bg-white/20 rounded-full p-3 sm:p-4 backdrop-blur-sm">
+              <AlertTriangle className="h-8 w-8 sm:h-10 sm:w-10" />
             </div>
-            <div>
-              <h1 className="text-3xl font-bold mb-2">Notfallplan gegen Schreikrisen</h1>
-              <p className="text-white/90 text-lg mb-3">
+            <div className="text-center sm:text-left">
+              <h1 className="text-2xl sm:text-3xl font-bold mb-2">Notfallplan gegen Schreikrisen</h1>
+              <p className="text-white/90 text-base sm:text-lg mb-3">
                 Sofortige Hilfe für {userData?.babyName} und dich, liebe {userData?.parentName}
               </p>
-              <div className="flex items-center gap-3">
-                <Badge className="bg-white/20 text-white border-0 backdrop-blur-sm">
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3">
+                <Badge className="bg-white/20 text-white border-0 backdrop-blur-sm text-xs sm:text-sm">
                   <Crown className="h-3 w-3 mr-1" />
                   Premium Notfallplan
                 </Badge>
-                <Badge className="bg-white/20 text-white border-0 backdrop-blur-sm">
+                <Badge className="bg-white/20 text-white border-0 backdrop-blur-sm text-xs sm:text-sm">
                   <Baby className="h-3 w-3 mr-1" />
                   Für {userData?.babyName}
                 </Badge>
-                <Badge className="bg-white/20 text-white border-0 backdrop-blur-sm">
+                <Badge className="bg-white/20 text-white border-0 backdrop-blur-sm text-xs sm:text-sm">
                   <Shield className="h-3 w-3 mr-1" />
                   SOS-Hilfe
                 </Badge>
@@ -589,10 +597,10 @@ export function EmergencyCryingPlan() {
 
       {/* Progress */}
       <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm rounded-2xl">
-        <CardContent className="p-4">
+        <CardContent className="p-3 sm:p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="font-semibold text-gray-700">Fortschritt:</span>
-            <span className="text-sm text-gray-500">
+            <span className="font-semibold text-gray-700 text-sm sm:text-base">Fortschritt:</span>
+            <span className="text-xs sm:text-sm text-gray-500">
               {completedModules} von {totalItems} Schritten
             </span>
           </div>
@@ -602,8 +610,8 @@ export function EmergencyCryingPlan() {
 
       {/* Module Navigation */}
       <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm rounded-3xl">
-        <CardContent className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+        <CardContent className="p-3 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-3">
             {modules.map((module) => {
               const ModuleIcon = module.icon
               return (
@@ -611,16 +619,16 @@ export function EmergencyCryingPlan() {
                   key={module.id}
                   variant={activeModule === module.id ? "default" : "outline"}
                   onClick={() => setActiveModule(module.id)}
-                  className={`h-auto p-4 flex flex-col items-center gap-2 transition-all duration-300 ${
+                  className={`h-auto p-3 sm:p-4 flex flex-col items-center gap-2 transition-all duration-300 ${
                     activeModule === module.id
                       ? `bg-gradient-to-r ${module.color} text-white border-0 shadow-lg scale-105`
                       : "border-gray-200 hover:bg-gray-50"
                   }`}
                 >
-                  <ModuleIcon className="h-6 w-6" />
+                  <ModuleIcon className="h-5 w-5 sm:h-6 sm:w-6" />
                   <div className="text-center">
-                    <div className="font-bold text-sm">{module.title}</div>
-                    <div className="text-xs opacity-80">{module.subtitle}</div>
+                    <div className="font-bold text-xs sm:text-sm">{module.title}</div>
+                    <div className="text-xs opacity-80 hidden sm:block">{module.subtitle}</div>
                   </div>
                 </Button>
               )
@@ -634,25 +642,25 @@ export function EmergencyCryingPlan() {
 
       {/* Navigation */}
       <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm rounded-2xl">
-        <CardContent className="p-4">
-          <div className="flex justify-between items-center">
+        <CardContent className="p-3 sm:p-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
             <Button
               variant="outline"
               onClick={() => setActiveModule(Math.max(1, activeModule - 1))}
               disabled={activeModule === 1}
-              className="border-gray-300"
+              className="border-gray-300 w-full sm:w-auto"
             >
               ← Vorheriges Modul
             </Button>
-            <div className="text-center">
-              <div className="font-bold text-gray-700">Modul {activeModule} von 5</div>
-              <div className="text-sm text-gray-500">{modules[activeModule - 1]?.title}</div>
+            <div className="text-center order-first sm:order-none">
+              <div className="font-bold text-gray-700 text-sm sm:text-base">Modul {activeModule} von 5</div>
+              <div className="text-xs sm:text-sm text-gray-500">{modules[activeModule - 1]?.title}</div>
             </div>
             <Button
               variant="outline"
               onClick={() => setActiveModule(Math.min(5, activeModule + 1))}
               disabled={activeModule === 5}
-              className="border-gray-300"
+              className="border-gray-300 w-full sm:w-auto"
             >
               Nächstes Modul →
             </Button>

@@ -134,6 +134,15 @@ export function SoundCloudPlayer({ category }: SoundCloudPlayerProps) {
   const whiteNoise: SoundCloudTrack[] = [
     {
       id: "1",
+      title: "First Class Sleeping Quarters - Airplane White Noise",
+      url: "https://soundcloud.com/relaxing-white-noise/first-class-sleeping-quarters-sleep-to-airplane-white-noise-75-minutes",
+      embedUrl:
+        "https://w.soundcloud.com/player/?url=https://soundcloud.com/relaxing-white-noise/first-class-sleeping-quarters-sleep-to-airplane-white-noise-75-minutes&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false",
+      duration: "75:00",
+      category: "airplane",
+    },
+    {
+      id: "2",
       title: "Baby Sleep Sound - Cólica Relief",
       url: "https://soundcloud.com/relaxing-white-noise/colicky-baby-sleep-sound-75-minutes",
       embedUrl:
@@ -142,7 +151,7 @@ export function SoundCloudPlayer({ category }: SoundCloudPlayerProps) {
       category: "baby",
     },
     {
-      id: "2",
+      id: "3",
       title: "Fan Noise for Sleeping",
       url: "https://soundcloud.com/relaxing-white-noise/fan-noise-for-sleeping",
       embedUrl:
@@ -151,7 +160,7 @@ export function SoundCloudPlayer({ category }: SoundCloudPlayerProps) {
       category: "fan",
     },
     {
-      id: "3",
+      id: "4",
       title: "Air Conditioner White Noise",
       url: "https://soundcloud.com/relaxing-white-noise/air-conditioner-white-noise",
       embedUrl:
@@ -160,7 +169,7 @@ export function SoundCloudPlayer({ category }: SoundCloudPlayerProps) {
       category: "appliance",
     },
     {
-      id: "4",
+      id: "5",
       title: "Baby White Noise - Hairdryer",
       url: "https://soundcloud.com/relaxing-white-noise/baby-white-noise-hairdryer",
       embedUrl:
@@ -169,7 +178,7 @@ export function SoundCloudPlayer({ category }: SoundCloudPlayerProps) {
       category: "baby",
     },
     {
-      id: "5",
+      id: "6",
       title: "Rain for Sleep (No Thunder)",
       url: "https://soundcloud.com/relaxing-white-noise/rain-for-sleep-or-relaxation-no-thunder-white-noise-75-minutes",
       embedUrl:
@@ -178,7 +187,7 @@ export function SoundCloudPlayer({ category }: SoundCloudPlayerProps) {
       category: "rain",
     },
     {
-      id: "6",
+      id: "7",
       title: "Thunderstorm with Rain",
       url: "https://soundcloud.com/relaxing-white-noise/relaxing-sounds-of-rain-thunderstorm-white-noise-for-sleeping-studying-or-stress-75-minutes",
       embedUrl:
@@ -187,7 +196,7 @@ export function SoundCloudPlayer({ category }: SoundCloudPlayerProps) {
       category: "rain",
     },
     {
-      id: "7",
+      id: "8",
       title: "Vacuum Cleaner for Babies",
       url: "https://soundcloud.com/relaxing-white-noise/sleep-sounds-for-babies-vacuum-cleaner-white-noise-75-minutes",
       embedUrl:
@@ -196,20 +205,11 @@ export function SoundCloudPlayer({ category }: SoundCloudPlayerProps) {
       category: "baby",
     },
     {
-      id: "8",
+      id: "9",
       title: "Ocean Waves",
       url: "https://soundcloud.com/relaxing-white-noise/beach-waves-beautiful-views-75-minutes",
       embedUrl:
         "https://w.soundcloud.com/player/?url=https://soundcloud.com/relaxing-white-noise/beach-waves-beautiful-views-75-minutes&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false",
-      duration: "75:00",
-      category: "water",
-    },
-    {
-      id: "9",
-      title: "Waterfall White Noise",
-      url: "https://soundcloud.com/relaxing-white-noise/roaring-waterfall-white-noise-75-minutes",
-      embedUrl:
-        "https://w.soundcloud.com/player/?url=https://soundcloud.com/relaxing-white-noise/roaring-waterfall-white-noise-75-minutes&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false",
       duration: "75:00",
       category: "water",
     },
