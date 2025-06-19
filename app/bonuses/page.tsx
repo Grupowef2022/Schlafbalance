@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { FileText, Music, Calendar, ArrowLeft, Eye, Star, Clock, Target } from "lucide-react"
+import { Music, Calendar, ArrowLeft, Eye, Star, Clock, Target, AlertTriangle } from "lucide-react"
 import { SleepTracker } from "@/components/bonus-content/sleep-tracker"
 import { ExclusiveAudio } from "@/components/bonus-content/exclusive-audio"
-import { SleepMythsGuide } from "@/components/bonus-content/sleep-myths-guide"
+import { EmergencyCryingPlan } from "@/components/bonus-content/emergency-crying-plan"
 import { AuthGuard } from "@/components/auth-guard"
 import { MobileLayout } from "@/components/mobile-layout"
 
@@ -17,6 +17,16 @@ export default function BonusesPage() {
   const [activeBonus, setActiveBonus] = useState<string | null>(null)
 
   const bonuses = [
+    {
+      id: "emergency-crying-plan",
+      title: "Notfallplan gegen Schreikrisen",
+      description: "Sofortige Hilfe und bewährte Techniken für akute Schreiphasen - Schritt für Schritt Anleitung",
+      icon: AlertTriangle,
+      type: "emergency",
+      premium: true,
+      features: ["5 Module Notfallplan", "Sofort-Beruhigungs-Techniken", "Ursachen-Check", "Emotionaler Support"],
+      estimatedTime: "SOS-Hilfe",
+    },
     {
       id: "sleep-tracker",
       title: "30-Tage-Schlaf-Tracker",
@@ -37,16 +47,6 @@ export default function BonusesPage() {
       features: ["15 exklusive Tracks", "Binaurale Beats", "Naturgeräusche HD", "Endlos-Wiedergabe"],
       estimatedTime: "Unbegrenzt",
     },
-    {
-      id: "sleep-myths",
-      title: "Mini-Ratgeber: Schlaf-Mythen aufgeklärt",
-      description: "Die häufigsten Mythen über Babyschlaf - wissenschaftlich fundiert aufgeklärt",
-      icon: FileText,
-      type: "guide",
-      premium: false,
-      features: ["20 häufige Mythen", "Wissenschaftliche Fakten", "Praktische Tipps", "Expertenrat"],
-      estimatedTime: "15 Min Lesezeit",
-    },
   ]
 
   const handleBonusClick = (bonusId: string) => {
@@ -55,12 +55,12 @@ export default function BonusesPage() {
 
   const renderBonusContent = (bonusId: string) => {
     switch (bonusId) {
+      case "emergency-crying-plan":
+        return <EmergencyCryingPlan />
       case "sleep-tracker":
         return <SleepTracker />
       case "exclusive-audio":
         return <ExclusiveAudio />
-      case "sleep-myths":
-        return <SleepMythsGuide />
       default:
         return null
     }

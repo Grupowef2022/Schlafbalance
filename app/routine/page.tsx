@@ -151,13 +151,13 @@ export default function RoutinePage() {
     },
     {
       id: 5,
-      title: "Abdunkeln & Weißes Rauschen",
-      description: `${userData?.babyName}s Zimmer für den Schlaf vorbereiten`,
-      duration: "2 Minuten",
+      title: "Beruhigende Musik",
+      description: `Sanfte Schlafmusik für ${userData?.babyName} abspielen`,
+      duration: "5-10 Minuten",
       completed: false,
       icon: Volume2,
       color: "from-indigo-500 to-purple-600",
-      tips: ["Licht langsam dimmen", "Weißes Rauschen einschalten", "Raumtemperatur prüfen"],
+      tips: ["Leise Lautstärke wählen", "Entspannende Melodien", "Konstante Wiederholung"],
     },
     {
       id: 6,
@@ -302,6 +302,45 @@ export default function RoutinePage() {
                   Aktiver Schritt
                 </Badge>
               </div>
+
+              {/* SoundCloud Player for Music Step */}
+              {currentStepData.id === 5 && (
+                <div className="bg-white rounded-2xl p-4 border-2 border-purple-200">
+                  <h4 className="font-semibold text-purple-800 mb-4 flex items-center gap-2">
+                    🎵 Beruhigende Musik für {userData?.babyName}:
+                  </h4>
+                  <div className="bg-gray-50 rounded-xl p-4">
+                    <div className="flex items-center gap-4 mb-4">
+                      <img
+                        src="/images/mother-baby-cover.png"
+                        alt="Baby sleeping"
+                        className="w-16 h-16 rounded-lg object-cover"
+                      />
+                      <div>
+                        <h5 className="font-semibold text-gray-800">Air on the G String</h5>
+                        <p className="text-sm text-gray-600">⏱️ 3:24</p>
+                      </div>
+                    </div>
+
+                    {/* SoundCloud Embed */}
+                    <iframe
+                      width="100%"
+                      height="166"
+                      scrolling="no"
+                      frameBorder="no"
+                      allow="autoplay"
+                      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                      className="rounded-lg"
+                    ></iframe>
+
+                    <div className="mt-4 text-center">
+                      <p className="text-xs text-gray-500">
+                        🔊 Stellen Sie die Lautstärke leise ein für {userData?.babyName}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Tips */}
               <div className="bg-white/80 rounded-xl p-4 border border-purple-200">

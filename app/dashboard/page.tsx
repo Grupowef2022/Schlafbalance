@@ -5,7 +5,21 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
-import { Bath, Heart, BookOpen, Moon, Music, Waves, Star, Clock, Award, Target, TrendingUp, Crown } from "lucide-react"
+import {
+  Bath,
+  Heart,
+  BookOpen,
+  Moon,
+  Music,
+  Waves,
+  Star,
+  Clock,
+  Award,
+  Target,
+  TrendingUp,
+  Crown,
+  Brain,
+} from "lucide-react"
 import { useUserData } from "@/hooks/use-user-data"
 import Link from "next/link"
 import { AuthGuard } from "@/components/auth-guard"
@@ -148,6 +162,35 @@ export default function Dashboard() {
             </CardContent>
           </Card>
         </div>
+
+        {/* Premium Content Access */}
+        <Card className="border-0 shadow-xl bg-gradient-to-r from-indigo-50 to-purple-50 rounded-3xl mb-6">
+          <CardContent className="p-6">
+            <div className="flex items-center gap-4">
+              <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full p-3">
+                <Brain className="h-8 w-8 text-white" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-purple-800 mb-1">Schlaf-Mythen aufgeklärt</h3>
+                <p className="text-purple-600 text-sm">
+                  Wissenschaftlich fundierte Fakten für {userData?.babyName}s gesunden Schlaf
+                </p>
+                <Badge className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white border-0 mt-2">
+                  Premium Content
+                </Badge>
+              </div>
+              <Button
+                asChild
+                className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-xl shadow-lg"
+              >
+                <Link href="/sleep-myths">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  Öffnen
+                </Link>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Main Progress Card */}
         <Card className="mx-auto mb-6 bg-white/90 backdrop-blur-sm border-0 shadow-2xl rounded-3xl overflow-hidden">
